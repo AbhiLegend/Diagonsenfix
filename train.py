@@ -26,15 +26,18 @@ with zipfile.ZipFile(io.BytesIO(content)) as arc:
 raw_data.head()
 
 #set column mapping for Evidently Profile
-#set column mapping for Evidently Profile
-#set column mapping for Evidently Profile
+
 data_columns = ColumnMapping()
+#we differntiate the column mapping as numerical and categorical for the data
 data_columns.numerical_features = ['weathersit', 'temp', 'atemp', 'hum', 'windspeed']
 data_columns.categorical_features = ['holiday', 'workingday']
 
 #evaluate data drift with Evidently Profile
-#evaluate data drift with Evidently Profile
+
+#Within the function we create a profile in json format
 def eval_drift(reference, production, column_mapping):
+    '''Take reference from begin and end dates and
+    then evaluate the drift in the data for that period.'''
     data_drift_profile = Profile(sections=[DataDriftProfileSection()])
     data_drift_profile.calculate(reference, production, column_mapping=column_mapping)
     report = data_drift_profile.json()
@@ -58,22 +61,22 @@ experiment_batches = [
     ('2011-06-01 00:00:00','2011-06-30 23:00:00'), 
     ('2011-07-01 00:00:00','2011-07-31 23:00:00'), 
 ]
-
-#log into MLflow
+#Integration of MLflow with Evidently AI
+#log into MLflow,
 client = MlflowClient()
 
 #set experiment
 mlflow.set_experiment('Data Drift Evaluation with Evidently')
 
-#start new run
+#start new run for the mentioned dates
 for date in experiment_batches:
     with mlflow.start_run() as run: #inside brackets run_name='test'
         
-        # Log parameters
+        # Log parameters fr the beginning and the end dates
         mlflow.log_param("begin", date[0])
         mlflow.log_param("end", date[1])
 
-        # Log metrics
+        # Log metrics We log the metrics for the ml model we had to populate the result in MLFlow web ui
         metrics = eval_drift(raw_data.loc[reference_dates[0]:reference_dates[1]], 
                              raw_data.loc[date[0]:date[1]], 
                              column_mapping=data_columns)
