@@ -93,6 +93,30 @@ Answer c) Update the code in the train.py script under set experiment section wh
 The solution file is hosted in github [a link] (https://github.com/AbhiLegend/mlflowsolution) <br />
 Login to heroku using the free account.Similarly as shown before create a new app.Deployment method would be github.Make sure the repo [a link] (https://github.com/AbhiLegend/mlflowsolution) is forked <br />
 Search and add the forked repo.Uploading and hosting the files would take time.You will see the update link.Goto the link and you will see the mlflow ui. <br />
+## Understanding the Mlflow Web UI for the project <br />
+The MLFlow UI shows the p-value of the statistical test performed to evaluate the drift for each feature. As experiments, several time periods that emulate <br /> production model runs are compared to a base reference time period. In the left column we can see the list of experiments performed,<br />
+in our case it is "Data Drift Evaluation with Evidently". Inside it, the Start Time column shows us the time when the runs were done. We can also see the Duration <br />
+which each run took. Correspondingly for each run we can see the experimental value obtained for the three metrics we monitored and the time duration in which it took place. <br />
+
+MLFlow UI consists of two tabs Experiments and models.Our main focus would be on Experiment <br />
+![alt text](https://github.com/AbhiLegend/Diagonsenfix/blob/main/images/1.PNG) <br />
+We have to uncheck Default section in Experiment and select the Data drift evaluation <br />
+![alt text](https://github.com/AbhiLegend/Diagonsenfix/blob/main/images/2.PNG) <br />
+The results that we see are the training files that we have run through. <br />
+![alt text](https://github.com/AbhiLegend/Diagonsenfix/blob/main/images/3.PNG) <br />
+If we select one such training and then we get to see the details of the training perspective.From here we can see what are the parameters we have selected.We need <br />
+to expand the parameters section. <br />
+![alt text](https://github.com/AbhiLegend/Diagonsenfix/blob/main/images/4.PNG) <br />
+Now if we click on metrics we can see different names and the values associated with it. <br />
+![alt text](https://github.com/AbhiLegend/Diagonsenfix/blob/main/images/5.PNG) <br />
+There is a compare tab which is greyed out but if we select two different training runs we can compare them <br />
+![alt text](https://github.com/AbhiLegend/Diagonsenfix/blob/main/images/6.PNG) <br />
+Afte that we select the compare tab we are able to see the visualization. <br />
+![alt text](https://github.com/AbhiLegend/Diagonsenfix/blob/main/images/7.PNG) <br />
+![alt text](https://github.com/AbhiLegend/Diagonsenfix/blob/main/images/8.PNG) <br />
+
+
+
 
 
 
