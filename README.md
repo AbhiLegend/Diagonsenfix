@@ -114,6 +114,16 @@ There is a compare tab which is greyed out but if we select two different traini
 Afte that we select the compare tab we are able to see the visualization. <br />
 ![alt text](https://github.com/AbhiLegend/Diagonsenfix/blob/main/images/7.PNG) <br />
 ![alt text](https://github.com/AbhiLegend/Diagonsenfix/blob/main/images/8.PNG) <br />
+<br />
+## Data Drift issues <br />
+These are some instructions to fix data drift <br />
+Reweigh samples in the training data, giving more importance to the recent ones. The goal is to make the model give priority to newer patterns. <br />
+Identify new segments where the model fails, and create a different model for it. Consider using an ensemble of several models for different segments of the data. <br />
+Change the prediction target. For example, switch from weekly to daily forecast or replace the regression model with classification into categories from "high" to "low." <br />
+Pick a different model architecture to account for ongoing drift. You can consider incremental or online learning, where the model continuously adapts to new data. <br />
+Apply domain adaptation strategies. There are a number of approaches to help the model better generalize to a new target domain. <br />
+
+
 
 
 
