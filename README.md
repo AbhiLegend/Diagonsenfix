@@ -115,7 +115,7 @@ Afte that we select the compare tab we are able to see the visualization. <br />
 ![alt text](https://github.com/AbhiLegend/Diagonsenfix/blob/main/images/7.PNG) <br />
 ![alt text](https://github.com/AbhiLegend/Diagonsenfix/blob/main/images/8.PNG) <br />
 <br />
-## Data Drift issues <br />
+## Discussoon on how to fix  Data Drift issues <br />
 These are some instructions to fix data drift <br />
 Reweigh samples in the training data, giving more importance to the recent ones. The goal is to make the model give priority to newer patterns. <br />
 Identify new segments where the model fails, and create a different model for it. Consider using an ensemble of several models for different segments of the data. <br />
